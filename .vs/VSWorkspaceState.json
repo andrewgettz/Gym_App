@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\config",
+    "\\controllers",
+    "\\controllers\\api",
+    "\\models",
+    "\\node_modules\\nodeman",
+    "\\public",
+    "\\public\\styles",
+    "\\views",
+    "\\views\\layouts"
+  ],
+  "SelectedNode": "\\controllers\\Home.js",
+  "PreviewInSolutionExplorer": false
+}
