@@ -1,0 +1,17 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\config",
+    "\\models",
+    "\\node_modules",
+    "\\node_modules\\sequelize",
+    "\\node_modules\\sequelize\\lib",
+    "\\node_modules\\sequelize\\lib\\dialects",
+    "\\node_modules\\sequelize\\lib\\dialects\\mysql",
+    "\\styles",
+    "\\views",
+    "\\views\\layouts"
+  ],
+  "SelectedNode": "\\node_modules\\sequelize\\lib\\dialects\\mysql\\connection-manager.js",
+  "PreviewInSolutionExplorer": false
+}
