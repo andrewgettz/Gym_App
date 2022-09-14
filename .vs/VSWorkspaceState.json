@@ -3,14 +3,14 @@
     "",
     "\\config",
     "\\controllers",
-    "\\controllers\\api",
+    "\\controllers\\routes",
+    "\\Local settings (.vs)",
     "\\models",
-    "\\node_modules\\nodeman",
     "\\public",
     "\\public\\styles",
     "\\views",
     "\\views\\layouts"
   ],
-  "SelectedNode": "\\controllers\\Home.js",
+  "SelectedNode": "\\package-lock.json",
   "PreviewInSolutionExplorer": false
 }
