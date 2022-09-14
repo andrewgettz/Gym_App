@@ -1,10 +1,19 @@
-const { Schedule, Child, User } = require("../models");
+const { Schedule, Child, Parent } = require("../models");
 
 
 
 
 const child_index = (req, res) => {
-    Child.findAll()
+    Child.findAll({
+        include: [
+            {
+                model: Parent,
+                attributes: ["id"],
+            },
+        ],
+
+
+    })
         .then((result) => {
             res.render('index', {});
         })

@@ -9,9 +9,17 @@ const parent_get = (req, res) => {
 };
 
 const parentprofile_get = (req, res) => {
-    res.render('parentprofile', {});
+    const id = req.params.id;
+    Parent.findByID(id)
+        .then(result => {
+            res.render('parentprofile', {
 
+            });
+
+        })
 };
+
+
 const parent_post = (req, res) => {
 
     console.log(req.body);
@@ -27,13 +35,14 @@ const parent_post = (req, res) => {
         email: req.body.email,
         password: req.body.password,
     })
-        .then((dbCommentData) => res.json(dbCommentData))
+        .then(res.redirect('/'))
+        /*  .then((dbCommentData) => res.json(dbCommentData))*/
 
         .catch((err) => {
             console.log(err);
             res.status(400).json(err);
-        })
-        .then(res.redirect('/'));
+        });
+       
 
 
 
