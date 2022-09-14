@@ -2,15 +2,16 @@
   "ExpandedNodes": [
     "",
     "\\config",
-    "\\controllers",
-    "\\controllers\\routes",
-    "\\Local settings (.vs)",
     "\\models",
-    "\\public",
-    "\\public\\styles",
+    "\\node_modules",
+    "\\node_modules\\sequelize",
+    "\\node_modules\\sequelize\\lib",
+    "\\node_modules\\sequelize\\lib\\dialects",
+    "\\node_modules\\sequelize\\lib\\dialects\\mysql",
+    "\\styles",
     "\\views",
     "\\views\\layouts"
   ],
-  "SelectedNode": "\\package-lock.json",
+  "SelectedNode": "\\node_modules\\sequelize\\lib\\dialects\\mysql\\connection-manager.js",
   "PreviewInSolutionExplorer": false
 }

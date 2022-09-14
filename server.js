@@ -4,7 +4,7 @@ const route = require("./controllers");
 var db = require("./models");
 const path = require("path");
 var app = express();
-var PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3001;
 
 //Middleware
 
@@ -14,9 +14,9 @@ app.engine("handlebars", exphbs.engine());
 app.set('views', './views');
 
 //Routes 
-//app.use(express.json());
-//app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static('styles'));
 app.use("/", route);
 
 db.sequelize.sync({ force: false }).then(function() {

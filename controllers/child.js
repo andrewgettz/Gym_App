@@ -1,41 +1,87 @@
-const router = require("express").Router();
-const { child, User } = require("../../models");
-const withAuth = require("../../utils/auth");
+const { Schedule, Child, User } = require("../models");
 
 
 
 
-router.get("/", (req, res) => {
-    child.findAll({
-        order: [["created_at", "DESC"]],
-        attributes: ["name_first", "name_last", "age", "gender", "allergies"],
-        //include: [
-        //    {
-        //        model: User,
-        //        attributes: ["username"],
-        //    },
-        //],
-    })
-        .then((dbCommentData) => res.json(dbCommentData))
-        .catch((err) => {
-            console.log(err);
-            res.status(500).json(err);
-        });
-});
-
-router.post("/", withAuth, (req, res) => {
-    // check the session
-    if (req.session) {
-        child.create({
-            name_first: req.body.name_first,
-            name_last: req.body.name_last,
-            // use the id from the session
-            user_id: req.session.user_id,
+const child_index = (req, res) => {
+    Child.findAll()
+        .then((result) => {
+            res.render('index', {});
         })
-            .then((dbCommentData) => res.json(dbCommentData))
-            .catch((err) => {
-                console.log(err);
-                res.status(400).json(err);
-            });
-    }
-});
+        .catch((err) => {
+
+            console.log(err);
+        })
+};
+const child_get = (req, res) => {
+    res.render('newchild', {});
+
+};
+
+
+const childprofile_get = (req, res) => {
+    res.render('childprofile', {});
+
+};
+
+const childschedule_get = (req, res) => {
+    res.render('schedulechild', {});
+
+};
+
+const child_post = (req, res) => {
+
+    console.log(req.body);
+
+    Child.create({
+        name_first: req.body.name_first,
+        name_last: req.body.name_last,
+        age: req.body.age,
+        gender: req.body.gender,
+        allergies: req.body.allergies,
+        dietRestrictions: req.body.dietRestrictions,
+        notes: req.body.notes,
+        photoLink: req.body.photoLink,
+        ParentId: req.body.ParentId,
+
+    })
+
+        .then(res.redirect('/'));
+
+
+
+}
+
+
+
+const childschedule_post = (req, res) => {
+
+    console.log(req.body);
+
+    Schedule.create({
+        monday: req.body.monday,
+        tuesday: req.body.tuesday,
+        wednesday: req.body.wednesday,
+        thursday: req.body.thursday,
+        friday: req.body.friday,
+     
+
+    })
+
+        .then(res.redirect('/'));
+
+
+
+}
+
+
+
+
+module.exports ={
+    child_post,
+    child_get,
+    childprofile_get,
+    childschedule_get,
+    childschedule_post,
+     child_index
+}
