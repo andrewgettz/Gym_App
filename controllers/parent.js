@@ -3,6 +3,9 @@ const { Parent, Child, User } = require("../models");
 
 
 
+
+
+
 const parent_get = (req, res) => {
     res.render('newparent', {});
 

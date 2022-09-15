@@ -4,14 +4,14 @@
       <div class="card mt-4">
         <div class="card-body">
             <h5 class="card-title">Login</h5>
-          <form id="addParent" method="post" action="/login">
+          <form id="login" method="post" action="/login">
            
             <div class="form-group">
             
                 <label for="email">Email</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="child@childcare.com">
+                <input type="email" class="form-control" id="email" name="username" placeholder="child@childcare.com" required>
                 <label for="email">Password</label>
-                <input type="password" class="form-control" id="email" name="password" placeholder="Min. 8 characters">
+                <input type="password" class="form-control" id="password" name="password" placeholder="Min. 8 characters" required>
             </div>
             <button type="submit" class="btn btn-primary">Login</button>
           </form>

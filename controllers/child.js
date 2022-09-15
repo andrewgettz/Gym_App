@@ -15,7 +15,7 @@ const child_index = (req, res) => {
 
     })
         .then((result) => {
-            res.render('index', {});
+            res.render('index', { loggedIn: req.session.loggedIn });
         })
         .catch((err) => {
 
