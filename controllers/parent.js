@@ -3,15 +3,28 @@ const { Parent, Child, User } = require("../models");
 
 
 
+
+
+
 const parent_get = (req, res) => {
     res.render('newparent', {});
 
 };
 
-const parentprofile_get = (req, res) => {
-    res.render('parentprofile', {});
+const parentprofile = (req, res) => {
+    const id = req.params.id;
+   
+    Parent.findByPk(id)
+        .then(result => {
+            console.log(result)
+            res.render('parentprofile', {
+                result: result.toJSON()
+            });
 
+        })
 };
+
+
 const parent_post = (req, res) => {
 
     console.log(req.body);
@@ -27,13 +40,13 @@ const parent_post = (req, res) => {
         email: req.body.email,
         password: req.body.password,
     })
-        .then((dbCommentData) => res.json(dbCommentData))
+        .then(res.redirect('/login'))
 
         .catch((err) => {
             console.log(err);
             res.status(400).json(err);
-        })
-        .then(res.redirect('/'));
+        });
+       
 
 
 
@@ -41,5 +54,5 @@ const parent_post = (req, res) => {
 module.exports = {
     parent_post,
     parent_get,
-    parentprofile_get
+    parentprofile
 }
