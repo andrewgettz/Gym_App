@@ -11,12 +11,14 @@ const parent_get = (req, res) => {
 
 };
 
-const parentprofile_get = (req, res) => {
+const parentprofile = (req, res) => {
     const id = req.params.id;
-    Parent.findByID(id)
+   
+    Parent.findByPk(id)
         .then(result => {
+            console.log(result)
             res.render('parentprofile', {
-
+                result: result.toJSON()
             });
 
         })
@@ -38,8 +40,7 @@ const parent_post = (req, res) => {
         email: req.body.email,
         password: req.body.password,
     })
-        .then(res.redirect('/'))
-        /*  .then((dbCommentData) => res.json(dbCommentData))*/
+        .then(res.redirect('/login'))
 
         .catch((err) => {
             console.log(err);
@@ -53,5 +54,5 @@ const parent_post = (req, res) => {
 module.exports = {
     parent_post,
     parent_get,
-    parentprofile_get
+    parentprofile
 }

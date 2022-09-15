@@ -2,35 +2,45 @@ const { Schedule, Child, Parent } = require("../models");
 
 
 
+const index = (req, res) => {
+    res.render('index', { ParentID: req.session.parentid, });
 
+};
 const child_index = (req, res) => {
+    const parentid = req.session.parentid;
     Child.findAll({
-        include: [
-            {
-                model: Parent,
-                attributes: ["id"],
-            },
-        ],
-
+        where: {
+            ParentId: parentid,
+        },
+        raw: true
 
     })
-        .then((result) => {
-            res.render('index', { loggedIn: req.session.loggedIn });
+        .then(result => {
+            console.log(result)
+            res.render('Landing', { result: result,loggedIn: req.session.loggedIn, firstname: req.session.name, PID: req.session.parentid });
         })
-        .catch((err) => {
+        .catch(err => {
 
             console.log(err);
         })
 };
 const child_get = (req, res) => {
-    res.render('newchild', {});
+    res.render('newchild', { ParentID: req.session.parentid, });
 
 };
 
 
 const childprofile_get = (req, res) => {
-    res.render('childprofile', {});
+    const id = req.params.id;
 
+    Child.findByPk(id)
+        .then(result => {
+            console.log(result)
+            res.render('childprofile', {
+                result: result.toJSON()
+            });
+
+        })
 };
 
 const childschedule_get = (req, res) => {
@@ -52,10 +62,15 @@ const child_post = (req, res) => {
         notes: req.body.notes,
         photoLink: req.body.photoLink,
         ParentId: req.body.ParentId,
+        monday: req.body.monday,
+        tuesday: req.body.tuesday,
+        wednesday: req.body.wednesday,
+        thursday: req.body.thursday,
+        friday: req.body.friday
 
     })
 
-        .then(res.redirect('/'));
+        .then(res.redirect('/landing'));
 
 
 
@@ -92,5 +107,6 @@ module.exports ={
     childprofile_get,
     childschedule_get,
     childschedule_post,
-     child_index
+    child_index,
+    index
 }

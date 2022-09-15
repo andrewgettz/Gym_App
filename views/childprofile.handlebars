@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row mt-4">
-    <div class="col-sm-12 col-md-6 col-lg-6">
-      <small>Child ID: {{child.id}}</small>
-      <small>Parent ID: {{child.ParentId}}</small>
+    <div hidden class="col-sm-12 col-md-6 col-lg-6">
+      <small>Child ID: {{result.id}}</small>
+      <small>Parent ID: {{result.ParentId}}</small>
     </div>
   </div>
   <div class="row">
@@ -11,7 +11,7 @@
         class="mb-3 disabledinput"
         id="updateChild"
         method="post"
-        action="/api/child/{{child.id}}"
+        action="/api/child/{{result.id}}"
       >
         <div class="form-row">
           <div class="form-group col-md-6">
@@ -22,7 +22,7 @@
                 class="form-control disabledinput"
                 id="child-name-first"
                 name="name_first"
-                value="{{child.name_first}}"
+                value="{{result.name_first}}"
                 disabled
               />
             </h2>
@@ -35,7 +35,7 @@
                 class="form-control disabledinput"
                 id="child-name-last"
                 name="name_last"
-                value="{{child.name_last}}"
+                value="{{result.name_last}}"
                 disabled
               />
             </h2>
@@ -45,10 +45,9 @@
           <legend>Schedule:</legend>
             <div class="form-check">
               <input class="form-check-input disabledinput" type="checkbox"
-              id="selectmonday" name="monday" {{#if
-              child.Schedule.monday}}checked{{/if}} disabled />
+              id="selectmonday" name="monday" {{#if monday}}checked {{/if}} disabled />
               <label class="form-check-label" for="selectmonday">
-                Monday {{#if child.Schedule.monday}}
+                Monday {{#if result.Schedule.monday}}
                 <small>Currently Enrolled</small>
                 {{/if}}
               </label>
@@ -56,9 +55,9 @@
             <div class="form-check">
               <input class="form-check-input disabledinput" type="checkbox"
               id="selecttuesday" name="tuesday" {{#if
-              child.Schedule.tuesday}}checked{{/if}} disabled />
+              result.Schedule.tuesday}}checked{{/if}} disabled />
               <label class="form-check-label" for="selecttuesday">
-								Tuesday {{#if child.Schedule.tuesday}}
+								Tuesday {{#if result.Schedule.tuesday}}
                 <small>Currently Enrolled</small>
                 {{/if}}
               </label>
@@ -66,9 +65,9 @@
             <div class="form-check">
               <input class="form-check-input disabledinput" type="checkbox"
               id="selectwednesday" name="wednesday" {{#if
-              child.Schedule.wednesday}}checked{{/if}} disabled />
+              result.Schedule.wednesday}}checked{{/if}} disabled />
               <label class="form-check-label" for="selectwednesday">
-                Wednesday {{#if child.Schedule.wednesday}}
+                Wednesday {{#if result.Schedule.wednesday}}
                 <small>Currently Enrolled</small>
                 {{/if}}
               </label>
@@ -76,9 +75,9 @@
             <div class="form-check">
               <input class="form-check-input disabledinput" type="checkbox"
               id="selectthursday" name="thursday" {{#if
-              child.Schedule.thursday}}checked{{/if}} disabled />
+              result.Schedule.thursday}}checked{{/if}} disabled />
               <label class="form-check-label" for="selectthursday">
-                Thursday {{#if child.Schedule.thursday}}
+                Thursday {{#if result.Schedule.thursday}}
                 <small>Currently Enrolled</small>
                 {{/if}}
               </label>
@@ -86,9 +85,9 @@
             <div class="form-check">
               <input class="form-check-input disabledinput" type="checkbox"
               id="selectfriday" name="friday" {{#if
-              child.Schedule.friday}}checked{{/if}} disabled />
+              result.Schedule.friday}}checked{{/if}} disabled />
               <label class="form-check-label" for="selectfriday">
-                Friday {{#if child.Schedule.friday}}
+                Friday {{#if result.Schedule.friday}}
                 <small>Currently Enrolled</small>
                 {{/if}}
               </label>
@@ -102,7 +101,7 @@
             class="form-control disabledinput"
             id="age"
             name="age"
-            value="{{child.age}}"
+            value="{{result.age}}"
             disabled
           />
           <label for="gender">Gender</label>
@@ -111,7 +110,7 @@
             class="form-control disabledinput"
             id="gender"
             name="gender"
-            value="{{child.gender}}"
+            value="{{result.gender}}"
             disabled
           />
           <label for="diet">Allergies</label>
@@ -120,7 +119,7 @@
             class="form-control disabledinput"
             id="allergies"
             name="allergies"
-            value="{{child.allergies}}"
+            value="{{result.allergies}}"
             disabled
           />
           <label for="diet">Diet Restrictions</label>
@@ -129,7 +128,7 @@
             class="form-control disabledinput"
             id="dietRestrictions"
             name="dietRestrictions"
-            value="{{child.dietRestrictions}}"
+            value="{{result.dietRestrictions}}"
             disabled
           />
           <label for="diet">Notes</label>
@@ -138,24 +137,24 @@
             class="form-control disabledinput"
             id="notes"
             name="notes"
-            value="{{child.notes}}"
+            value="{{result.notes}}"
             disabled
           />
         </div>
         {{!--
         <button class="btn btn-success" type="submit">Update Child</button> --}}
       </form>
-      <button id="edit" class="btn btn-primary">Edit Child</button>
+      <!--<button id="edit" class="btn btn-primary">Edit Child</button>-->
     </div>
 		<div class="row">
-			<div class="col">
-				<form method="post" action="/api/child/del/{{child.id}}">
+			<!--<div class="col">
+				<form method="post" action="/api/child/del/{{result.id}}">
 				<button action="submit" class="btn btn-danger btn-sm" id="deleteChild">Delete Child</button>
 				</form>
-			</div>
+			</div>-->
 		</div>
   </div>
-  <a href="/">Go to Week View</a>
+  <a href="/landing">Go to Week View</a>
 </div>"
 <script
   type="text/javascript"

@@ -40,57 +40,16 @@ app.set('views', './views');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static('styles'));
 app.use("/", route);
 app.use(apiCheck);
-
-
-
-//Routes 
-
-
-//app.post('/login/createUser', (req, res) => {
-//    const { username, password, name } = req.body;
-
-//    let saltAndHash;
-
-//    createSaltAndHash(password).then((res) => {
-//        saltAndHash = res;
-
-//        // Change this for db
-//        db.insert('INSERT INTO user (name, username, hashed_password, salt VALUES ?, ?, ?, ?', [name, username, saltAndHash.hash, saltAndHash.salt]);
-
-//        res.redirect('/~' + req.user.username);
-//    });
-//});
-
-//app.post('/login/updatePassword', (req, res) => {
-//    const { username, password } = req.body;
-
-//    db.get('SELECT * FROM users WHERE username = ?', [username], (err, user) => {
-//        if (err) {
-//            res.status(400).json({ err });
-//        }
-
-//        let saltAndHash;
-
-//        createSaltAndHash(password).then((res) => {
-//            saltAndHash = res;
-
-//            // Change this for db
-//            db.insert('UPDATE user SET hashed_password = ?, salt = ?', [saltAndHash.hash, saltAndHash.salt]);
-
-//            res.redirect('/~' + req.user.username);
-//        });
-//    });
-//});
+app.use(express.static('images'));
 
 
 
 db.sequelize.sync({ force: false }).then(function() {
     app.listen(PORT, function() {
       console.log("App listening on PORT " + PORT);
-    
+        console.log(express.static('/public/images'));
     });
   });
 
