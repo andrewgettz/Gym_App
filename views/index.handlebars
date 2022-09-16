@@ -25,7 +25,7 @@
         body {
             align-items: center;
             text-align: center;
-            background-image: url("images/nancare.png");
+           
             min-height: 100%;
         }
 	</style>
@@ -33,20 +33,16 @@
 <body>
 	<div class="jumbotron">
 		<div class="container">
-			<h1 class="display-5 logo">NanaCare</h1>
+		
 			<p class="lead">Welcome to NanaCare! An admin tool for daycares.</p>
-			<!--<div><img src="nancare.PNG"/></div>-->
+			<div><img src="images/nancare.PNG" /></div>
+			
 			<div id="alertZone"></div>
 			<nav class="navbar navbar-light bg-light">
 
-
-				{{#if loggedIn}}
-				<a class="mr-4">Welcome {{firstname}}!</a>
-				<a class="badge badge-primary" href="/logout">Logout</a>
-				{{else}}
 				<a class="mr-4 badge badge-primary" href="/newparent">Register</a>
 				<a class="badge badge-primary" href="/login">Login</a>
-				{{/if}}
+			
 			</nav>
 		</div>
 	</div>

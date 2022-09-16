@@ -1,20 +1,32 @@
+<head>
+    <style>
+    body {
+    align-items: center;
+    text-align: center;
+
+    min-height: 100%;
+    }
+</style>
+</head>
+
 <div class="container">
   <div class="row">
     <div class="col-8 offset-2">
       <div class="card mt-4">
         <div class="card-body">
-            <h5 class="card-title">Login</h5>
-          <form id="login" method="post" action="/login">
-           
-            <div class="form-group">
-            
-                <label for="email">Email</label>
-                <input type="email" class="form-control" id="email" name="username" placeholder="child@childcare.com" required>
-                <label for="email">Password</label>
-                <input type="password" class="form-control" id="password" name="password" placeholder="Min. 8 characters" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Login</button>
-          </form>
+            <h5 class="card-title">Login</h5><span style="color:darkred;background-color:lightpink">  {{message}}</span>
+            <form id="login" method="post" action="/login">
+
+                <div class="form-group">
+
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" name="username" placeholder="child@childcare.com" required>
+                    <label for="email">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Min. 8 characters" required>
+                </div>
+              
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
         </div>
       </div>
     </div>
