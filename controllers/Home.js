@@ -1,14 +1,8 @@
 const router = require('express').Router();
-const passport = require("passport");
-const LocalStrategy = require('passport-local');
 const childcontroller = require('../controllers/child')
 const parentcontroller = require('../controllers/parent')
-const logincontroller = require('../controllers/login')
 const { Parent, Child, User } = require("../models");
-var express = require("express");
 
-var app = express();
-app.use(express.static('public'));
 
 
 
@@ -25,18 +19,21 @@ router.post("/login", (req, res) => {
     Parent.findOne({
         where: {
             email: req.body.username,
+            password: req.body.password,
         },
-    }).then((dbUserData) => {
-        if (!dbUserData) {
-            res.status(400).json({ message: "No user with that email address!" });
+    }).then((result) => {
+        if (!result) {
+            res.render("login", {message: 'Incorrect username or password!'});
+           
+           
             return;
         }
 
 
         req.session.save(() => {
-            req.session.parentid = dbUserData.id;
-            req.session.username = dbUserData.email;
-            req.session.name = dbUserData.name_first;
+            req.session.parentid = result.id;
+            req.session.username = result.email;
+            req.session.name = result.name_first;
             req.session.loggedIn = true;
 
             res.redirect('/landing');
@@ -45,6 +42,21 @@ router.post("/login", (req, res) => {
     });
 });
 
+
+
+router.delete('/', (req, res) => {
+    if (req.session.loggedIn) {
+        req.session.destroy(err => {
+            if (err) {
+                res.status(400).send('Unable to log out')
+            } else {
+                res.send('Logout successful')
+            }
+        });
+    } else {
+        res.end()
+    }
+})
 
 //parents
 

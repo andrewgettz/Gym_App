@@ -16,8 +16,8 @@ const child_index = (req, res) => {
 
     })
         .then(result => {
-            console.log(result)
-            res.render('Landing', { result: result,loggedIn: req.session.loggedIn, firstname: req.session.name, PID: req.session.parentid });
+           
+            res.render('landing', { result: result,loggedIn: req.session.loggedIn, firstname: req.session.name, PID: req.session.parentid });
         })
         .catch(err => {
 
@@ -35,7 +35,7 @@ const childprofile_get = (req, res) => {
 
     Child.findByPk(id)
         .then(result => {
-            console.log(result)
+            
             res.render('childprofile', {
                 result: result.toJSON()
             });
@@ -50,7 +50,7 @@ const childschedule_get = (req, res) => {
 
 const child_post = (req, res) => {
 
-    console.log(req.body);
+   
 
     Child.create({
         name_first: req.body.name_first,

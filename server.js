@@ -6,7 +6,7 @@ const path = require("path");
 var app = express();
 const PORT = process.env.PORT || 3001;
 const expressSession = require("express-session");
-
+const flash = require('connect-flash');
 
 require("dotenv").config();
 const { env } = require("process");
@@ -38,18 +38,26 @@ app.set('views', './views');
 
 //Routes 
 
+app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(flash());
+//app.use(function (req, res, next) {
+//    res.locals.message = req.flash();
+//    console.log(req.flash())
+//    next();
+//});
+
 app.use("/", route);
 app.use(apiCheck);
-app.use(express.static('images'));
+
 
 
 
 db.sequelize.sync({ force: false }).then(function() {
     app.listen(PORT, function() {
       console.log("App listening on PORT " + PORT);
-        console.log(express.static('/public/images'));
+      /*  console.log(express.static('/public/images'));*/
     });
   });
 

@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row mt-4">
     <div hidden class="col-sm-12 col-md-6 col-lg-6">
-      <small>Child ID: {{result.id}}</small>
-      <small>Parent ID: {{result.ParentId}}</small>
+      <small style="color:forestgreen;font-weight:bold">Child ID: {{result.id}}</small>
+      <small style="color:forestgreen;font-weight:bold">Parent ID: {{result.ParentId}}</small>
     </div>
   </div>
   <div class="row">
@@ -42,53 +42,53 @@
           </div>
         </div>
         <div class="form-group">
-          <legend>Schedule:</legend>
+          <span>Schedule:</span>
             <div class="form-check">
               <input class="form-check-input disabledinput" type="checkbox"
-              id="selectmonday" name="monday" {{#if monday}}checked {{/if}} disabled />
+              id="selectmonday" name="monday" {{#if result.monday}}checked {{/if}} disabled />
               <label class="form-check-label" for="selectmonday">
-                Monday {{#if result.Schedule.monday}}
-                <small>Currently Enrolled</small>
+                Monday {{#if result.monday}}
+                <small style="color:forestgreen;font-weight:bold">Currently Enrolled</small>
                 {{/if}}
               </label>
             </div>
             <div class="form-check">
               <input class="form-check-input disabledinput" type="checkbox"
               id="selecttuesday" name="tuesday" {{#if
-              result.Schedule.tuesday}}checked{{/if}} disabled />
+              result.tuesday}}checked{{/if}} disabled />
               <label class="form-check-label" for="selecttuesday">
-								Tuesday {{#if result.Schedule.tuesday}}
-                <small>Currently Enrolled</small>
+								Tuesday {{#if result.tuesday}}
+                <small style="color:forestgreen;font-weight:bold" style="color:forestgreen;font-weight:bold">Currently Enrolled</small>
                 {{/if}}
               </label>
             </div>
             <div class="form-check">
               <input class="form-check-input disabledinput" type="checkbox"
               id="selectwednesday" name="wednesday" {{#if
-              result.Schedule.wednesday}}checked{{/if}} disabled />
+              result.wednesday}}checked{{/if}} disabled />
               <label class="form-check-label" for="selectwednesday">
-                Wednesday {{#if result.Schedule.wednesday}}
-                <small>Currently Enrolled</small>
+                Wednesday {{#if result.wednesday}}
+                <small style="color:forestgreen;font-weight:bold">Currently Enrolled</small>
                 {{/if}}
               </label>
             </div>
             <div class="form-check">
               <input class="form-check-input disabledinput" type="checkbox"
               id="selectthursday" name="thursday" {{#if
-              result.Schedule.thursday}}checked{{/if}} disabled />
+              result.thursday}}checked{{/if}} disabled />
               <label class="form-check-label" for="selectthursday">
-                Thursday {{#if result.Schedule.thursday}}
-                <small>Currently Enrolled</small>
+                Thursday {{#if result.thursday}}
+                <small style="color:forestgreen;font-weight:bold">Currently Enrolled</small>
                 {{/if}}
               </label>
             </div>
             <div class="form-check">
               <input class="form-check-input disabledinput" type="checkbox"
               id="selectfriday" name="friday" {{#if
-              result.Schedule.friday}}checked{{/if}} disabled />
+              result.friday}}checked{{/if}} disabled />
               <label class="form-check-label" for="selectfriday">
-                Friday {{#if result.Schedule.friday}}
-                <small>Currently Enrolled</small>
+                Friday {{#if result.friday}}
+                <small style="color:forestgreen;font-weight:bold">Currently Enrolled</small>
                 {{/if}}
               </label>
             </div>

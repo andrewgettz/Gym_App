@@ -27,20 +27,38 @@ const parentprofile = (req, res) => {
 
 const parent_post = (req, res) => {
 
-    console.log(req.body);
+    const email = req.body.email;
+    Parent.findAll({
+        where: {
+            email: email,
+        },
+        raw: true
 
-    Parent.create({
-        name_first: req.body.name_first,
-        name_last: req.body.name_last,
-        city: req.body.city,
-        state: req.body.state,
-        zip: req.body.zip,
-        address: req.body.address,
-        phone: req.body.phone,
-        email: req.body.email,
-        password: req.body.password,
     })
-        .then(res.redirect('/login'))
+        .then(result => {
+            console.log(result.length ==0)
+            if (result.length == 0) {
+                Parent.create({
+                    name_first: req.body.name_first,
+                    name_last: req.body.name_last,
+                    city: req.body.city,
+                    state: req.body.state,
+                    zip: req.body.zip,
+                    address: req.body.address,
+                    phone: req.body.phone,
+                    email: req.body.email,
+                    password: req.body.password,
+                })
+                    .then(res.redirect('/login'))
+            }
+            else {
+
+                res.render("newparent", { message: 'Email already Exists!' })
+
+            }
+
+        })
+  
 
         .catch((err) => {
             console.log(err);

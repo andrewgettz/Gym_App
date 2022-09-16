@@ -4,32 +4,33 @@
       <div class="card mt-4">
         <div class="card-body">
             <h5 class="card-title">Registration Form</h5>
+            <span class="col-12"style="font-size:24px; color:darkred;background-color:lightpink">  {{message}}</span>
           <form id="addParent" method="post" action="/newparent">
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="name-first">First Name</label>
-                <input type="text" class="form-control" id="name-first" name="name_first" placeholder="First">
+                <input type="text" class="form-control" id="name-first" name="name_first" placeholder="First" required oninvalid="this.setCustomValidity('First Name is required')"oninput="this.setCustomValidity('')">
               </div>
               <div class="form-group col-md-6">
                 <label for="name-first">Last Name</label>
-                <input type="text" class="form-control" id="name-last" name="name_last" placeholder="Last">
+                <input type="text" class="form-control" id="name-last" name="name_last" placeholder="Last" required oninvalid="this.setCustomValidity('Last Name is required')"oninput="this.setCustomValidity('')">
               </div>
             </div>
             <div class="form-group">
                 <label for="address">Address</label>
-                <input type="text" class="form-control" id="address" name="address" placeholder="1234 Main St">
+                <input type="text" class="form-control" id="address" name="address" placeholder="1234 Main St" required oninvalid="this.setCustomValidity('Address is required')"oninput="this.setCustomValidity('')">
                 <label for="address">City</label>
-                <input type="text" class="form-control" id="address" name="city" placeholder="City">
+                <input type="text" class="form-control" id="address" name="city" placeholder="City" required oninvalid="this.setCustomValidity('City is required')"oninput="this.setCustomValidity('')">
                 <label for="address">State</label>
-                <input type="text" class="form-control" id="address" name="state" placeholder="State">
+                <input type="text" class="form-control" id="address" name="state" placeholder="State" required oninvalid="this.setCustomValidity('State is required')"oninput="this.setCustomValidity('')">
                 <label for="address">zip</label>
-                <input type="text" class="form-control" id="address" name="zip" placeholder="99999">
+                <input type="text" class="form-control" id="address" name="zip" placeholder="99999" required oninvalid="this.setCustomValidity('Zip is required')"oninput="this.setCustomValidity('')">
                 <label for="phone">Phone</label>
-                <input type="text" class="form-control" id="phone" name="phone" placeholder="212-888-8888">
+                <input type="text" class="form-control" id="phone" name="phone" placeholder="212-888-8888" required oninvalid="this.setCustomValidity('Phone Number is required')"oninput="this.setCustomValidity('')">
                 <label for="email">Email</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="child@childcare.com">
+                <input type="email" class="form-control" id="email" name="email" placeholder="child@childcare.com" required oninvalid="this.setCustomValidity('Email is required')"oninput="this.setCustomValidity('')">
                 <label for="email">Password</label>
-                <input type="password" class="form-control" id="email" name="password" placeholder="">
+                <input type="password" class="form-control" id="email" name="password" pattern=".{8,12}" required oninvalid="this.setCustomValidity('Password is required and must be 8-12 characters')"oninput="this.setCustomValidity('')">
             </div>
             <button type="submit" class="btn btn-primary">Register</button>
           </form>
