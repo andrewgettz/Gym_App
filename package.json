@@ -1,6 +1,9 @@
 {
   "name": "gym_app",
   "version": "1.0.0",
+  "engines": {
+    "node": "18.x"
+  },
   "description": "Project 2",
   "main": "server.js",
   "scripts": {
