@@ -24,7 +24,7 @@ const apiCheck = (req, res, next) => {
 }
 
 app.use(expressSession ({
-	secret: 'CCCFm7qMVCmbcxh3'/*process.env.SESSION_SECRET*/,
+    secret: process.env.SESSION_SECRET, /*'CCCFm7qMVCmbcxh3'*/
     cookie: {},
     resave: false,
     saveUninitialized: false
