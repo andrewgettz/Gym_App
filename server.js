@@ -7,6 +7,7 @@ var app = express();
 const PORT = process.env.PORT || 3001;
 const expressSession = require("express-session");
 const flash = require('connect-flash');
+const host = '0.0.0.0';
 
 require("dotenv").config();
 const { env } = require("process");
@@ -55,7 +56,7 @@ app.use(apiCheck);
 
 
 db.sequelize.sync({ force: false }).then(function() {
-    app.listen(PORT, function() {
+    app.listen(PORT,host, function() {
       console.log("App listening on PORT " + PORT);
       /*  console.log(express.static('/public/images'));*/
     });
