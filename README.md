@@ -18,4 +18,4 @@ To run the app locally, node must be installed in your terminal.
 
 links 
 
-https://git.heroku.com/daycareapplication.git
+https://daycareapplication.herokuapp.com/
