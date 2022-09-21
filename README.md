@@ -17,3 +17,5 @@ To run the app locally, node must be installed in your terminal.
 3. npm start
 
 links 
+
+https://git.heroku.com/daycareapplication.git
