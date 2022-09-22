@@ -1,0 +1,23 @@
+{
+  "development": {
+    "database": "exampledb",
+    "dialect": "mysql",
+    "host": "127.0.0.1",
+    "password": "$3cret1!",
+    "port": 3306,
+    "username": "root"
+  },
+  "test": {
+    "database": "testdb",
+    "dialect": "mysql",
+    "host": "localhost",
+    "logging": false,
+    "password": "$3cret1",
+    "port": 3301,
+    "username": "root"
+  },
+  "production": {
+    "use_env_variable": "JAWSDB_URL",
+    "dialect": "mysql"
+  }
+}
